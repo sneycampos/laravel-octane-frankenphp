@@ -5,6 +5,10 @@
 
 	exec php artisan optimize
 
+	supervisor {
+	    php /app/artisan queue:work
+	}
+
 	frankenphp {
 		worker "{$APP_PUBLIC_PATH}/frankenphp-worker.php" {$CADDY_SERVER_WORKER_COUNT}
 	}
